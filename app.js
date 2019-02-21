@@ -26,7 +26,7 @@ function reply(reply_token) {
         //     type: 'text',
         //     text: 'How are you?'
         // }]
-        messages: {
+        messages: [{
             "type": "template",
             "altText": "this is a carousel template",
             "template": {
@@ -255,7 +255,7 @@ function reply(reply_token) {
                 }
               ]
             }
-          }
+          }]
     })
     request.post({
         url: 'https://api.line.me/v2/bot/message/reply',
