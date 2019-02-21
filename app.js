@@ -18,242 +18,43 @@ function reply(reply_token) {
     }
     let body = JSON.stringify({
         replyToken: reply_token,
-        // messages: [{
-        //     type: 'text',
-        //     text: 'Hello'
-        // },
-        // {
-        //     type: 'text',
-        //     text: 'How are you?'
-        // }]
         messages: [{
-            "type": "template",
-            "altText": "this is a carousel template",
-            "template": {
-              "type": "carousel",
-              "actions": [],
-              "columns": [
+            type: 'text',
+            text: 'Hello'
+        },
+        {
+            type: 'text',
+            text: 'How are you?'
+        },{
+            type: 'template',
+            altText: 'this is a buttons template',
+            template: {
+              type: 'buttons',
+              actions: [
                 {
-                  "thumbnailImageUrl": "http://postfiles8.naver.net/MjAxODAxMjRfMTg2/MDAxNTE2NzgwMDEyMTYw.5FIcKqzP0B5Cf3o0yd8DXX2lpI0WXQ4uEP6rSnOe0Pgg.oWHdoV_QXXes9SctFAz6Venn-mfxUlaQZapF9gyyhwMg.JPEG.destroyerx/spaghetti-1987454_1920.jpg?type=w2",
-                  "title": "                     Pasta",
-                  "text": "        Choose the menu below",
-                  "actions": [
-                    {
-                      "type": "message",
-                      "label": "Tomato Pasta",
-                      "text": "Tomato Pasta"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Olive Pasta",
-                      "text": "Olive Pasta"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 3",
-                      "text": "Action 3"
-                    }
-                  ]
+                  type: 'message',
+                  label: 'PM 6:00',
+                  text: 'PM 6:00'
                 },
                 {
-                  "thumbnailImageUrl": "https://postfiles.pstatic.net/MjAxODAxMTJfMjgy/MDAxNTE1NzM5ODgyMzU2.uno8L7N4v3xk-16ormEE1RMZ2PEgS0olVXUYcMOhCY8g.elB-yyuOlN6-NnbejDQ9ru-kkf88YaxJUFst-3ssLisg.JPEG.destroyerx/pizza-2766487_1920.jpg?type=w2",
-                  "title": "                     Pizza",
-                  "text": "        Choose the menu below",
-                  "actions": [
-                    {
-                      "type": "message",
-                      "label": "Super Supreme Pizza",
-                      "text": "Super Supreme Pizza"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Peperoni",
-                      "text": "Peperoni"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 3",
-                      "text": "Action 3"
-                    }
-                  ]
+                  type: 'message',
+                  label: 'PM 7:00',
+                  text: 'PM 7:00'
                 },
                 {
-                  "thumbnailImageUrl": "https://postfiles.pstatic.net/MjAxODAxMTJfMzEg/MDAxNTE1NzMxODE3Mjgw.rROrcD8PQYk_febepsveurYQveHdhx6ljWTyYWLyQmQg.WFflEpeSmkYHqbkwieaj2Kda2D8zuWjqbQrrO7jJwKQg.JPEG.destroyerx/sally's_brunch.jpg?type=w2",
-                  "title": "                     Steak",
-                  "text": "       Choose the menu below",
-                  "actions": [
-                    {
-                      "type": "message",
-                      "label": "T-Bone Steak",
-                      "text": "T-Bone Steak"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Ribeye Steak",
-                      "text": "Ribeye Steak"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 3",
-                      "text": "Action 3"
-                    }
-                  ]
+                  type: 'message',
+                  label: 'PM 8:00',
+                  text: 'PM 8:00'
                 },
                 {
-                  "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
-                  "title": "Title",
-                  "text": "Text",
-                  "actions": [
-                    {
-                      "type": "message",
-                      "label": "Action 1",
-                      "text": "Action 1"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 2",
-                      "text": "Action 2"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 3",
-                      "text": "Action 3"
-                    }
-                  ]
-                },
-                {
-                  "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
-                  "title": "Title",
-                  "text": "Text",
-                  "actions": [
-                    {
-                      "type": "message",
-                      "label": "Action 1",
-                      "text": "Action 1"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 2",
-                      "text": "Action 2"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 3",
-                      "text": "Action 3"
-                    }
-                  ]
-                },
-                {
-                  "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
-                  "title": "Title",
-                  "text": "Text",
-                  "actions": [
-                    {
-                      "type": "message",
-                      "label": "Action 1",
-                      "text": "Action 1"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 2",
-                      "text": "Action 2"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 3",
-                      "text": "Action 3"
-                    }
-                  ]
-                },
-                {
-                  "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
-                  "title": "Title",
-                  "text": "Text",
-                  "actions": [
-                    {
-                      "type": "message",
-                      "label": "Action 1",
-                      "text": "Action 1"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 2",
-                      "text": "Action 2"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 3",
-                      "text": "Action 3"
-                    }
-                  ]
-                },
-                {
-                  "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
-                  "title": "Title",
-                  "text": "Text",
-                  "actions": [
-                    {
-                      "type": "message",
-                      "label": "Action 1",
-                      "text": "Action 1"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 2",
-                      "text": "Action 2"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 3",
-                      "text": "Action 3"
-                    }
-                  ]
-                },
-                {
-                  "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
-                  "title": "Title",
-                  "text": "Text",
-                  "actions": [
-                    {
-                      "type": "message",
-                      "label": "Action 1",
-                      "text": "Action 1"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 2",
-                      "text": "Action 2"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 3",
-                      "text": "Action 3"
-                    }
-                  ]
-                },
-                {
-                  "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
-                  "title": "Title",
-                  "text": "Text",
-                  "actions": [
-                    {
-                      "type": "message",
-                      "label": "Action 1",
-                      "text": "Action 1"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 2",
-                      "text": "Action 2"
-                    },
-                    {
-                      "type": "message",
-                      "label": "Action 3",
-                      "text": "Action 3"
-                    }
-                  ]
+                  type: 'message',
+                  label: 'PM 9:00',
+                  text: 'PM 9:00'
                 }
-              ]
+              ],
+              thumbnailImageUrl: 'SPECIFY_YOUR_IMAGE_URL',
+              title: 'Select the Reservation time',
+              text: 'Last Order : PM 9:00'
             }
           }]
     })
