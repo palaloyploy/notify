@@ -27,6 +27,9 @@ function reply(reply_token) {
         //     text: 'How are you?'
         // }]
         messages: [{
+                type: 'text',
+                text: 'Hello'
+            },{
             type: 'template',
             altText: 'this is a carousel template',
             template: {
