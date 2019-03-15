@@ -61,6 +61,69 @@ app.post('/webhook', (req, res) => {
   }
   res.sendStatus(200)
 })
+
+
+app.post('/notify',(req,res) => {
+  var detail = req.body
+  console.log(detail)
+
+  if (detail !== undefined ) {
+    noti = mes_notify(detail).then(
+      (response)=>{
+  
+        multicast(req, response)
+
+        }
+      )
+    }
+    res.sendStatus(200)
+  }) 
+async function mes_notify(detail){
+  console.log("55")
+  let notify = {
+    to: [],
+    messages: [
+      {
+        type: 'text',
+        text: 'Hello'
+      }]
+  }
+  detail.forEach(element =>{
+    notify.to.push(element.UserID)
+    if(element.level == '1'){
+
+      notify.messages[0].text = "ขณะนี้ ค่าAQI ของที่พื้นที่"+element.location+"มีค่าเท่ากับ .... ซึ่งมีค่าเกินมาตรฐาน"
+    }
+    else if(element.level == '2'){
+
+      notify.messages[0].text = "ขณะนี้ ค่าAQI ของที่พื้นที่"+element.location+"มีค่าเท่ากับ .... ซึ่งมีเริ่มมีผลต่อสุขภาพ"
+    }
+    else if(element.level == '3'){
+
+      notify.messages[0].text = "ขณะนี้ ค่าAQI ของที่พื้นที่"+element.location+"มีค่าเท่ากับ .... ซึ่งมีอันตรายต่อสุขภาพ"
+    }
+  })
+  console.log(notify)
+  return notify
+
+}
+const multicast = (res, msg) => {
+let headers = {
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer {mZKFJMNWSDBYmwv2/Vo3B4RBqt4rxrV61+uHhtlaUrRgsFuExGL4UjqyL/osApnb4gQLABecLaWW+PmT6P7o/AkXlpP/SYzvskNN3ujFIvY+FTTcQ7LxWje+xCHgRxABq1mtHcwPxzui/4+yc8K5+AdB04t89/1O/w1cDnyilFU=}'
+  }
+request.post({
+    uri: 'https://api.line.me/v2/bot/message/multicast',
+    headers: headers,
+    body: JSON.stringify(msg)
+  }, (err, res, body) => {
+    console.log(body)
+    // console.log('status = ' + res.statusCode);
+    console.log(body)
+  });
+}
+
+
 app.listen(port)
 
 async function handleCmd(cmd, UserID) {
@@ -149,6 +212,7 @@ async function getCardFromAllDevice() {
   }
   let column = []
   var device = await geteAllDevice()
+  console.log(device)
   device.forEach(element => {
     let card = {
       thumbnailImageUrl: 'https://example.com/bot/images/item1.jpg',
@@ -182,7 +246,7 @@ async function getCardFromAllDevice() {
     column.push(card)
   });
   body.messages[0].template.columns = column
-  // console.log(body)
+  console.log(body)
   return body
 }
 
