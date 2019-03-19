@@ -79,7 +79,6 @@ app.post('/notify',(req,res) => {
     res.sendStatus(200)
   }) 
 async function mes_notify(detail){
-  console.log("55")
   let notify = {
     to: [],
     messages: [
@@ -88,21 +87,50 @@ async function mes_notify(detail){
         text: 'Hello'
       }]
   }
-  detail.forEach(element =>{
+  //console.log(detail.AQINOW)
+  detail.user.forEach(element =>{
     notify.to.push(element.UserID)
-    if(element.level == '1'){
-
-      notify.messages[0].text = "ขณะนี้ ค่าAQI ของที่พื้นที่"+element.location+"มีค่าเท่ากับ .... ซึ่งมีค่าเกินมาตรฐาน"
-    }
-    else if(element.level == '2'){
-
-      notify.messages[0].text = "ขณะนี้ ค่าAQI ของที่พื้นที่"+element.location+"มีค่าเท่ากับ .... ซึ่งมีเริ่มมีผลต่อสุขภาพ"
-    }
-    else if(element.level == '3'){
-
-      notify.messages[0].text = "ขณะนี้ ค่าAQI ของที่พื้นที่"+element.location+"มีค่าเท่ากับ .... ซึ่งมีอันตรายต่อสุขภาพ"
-    }
+    
   })
+  if(detail.AQINOW >=51 && detail.AQINOW <=100 && detail.type == "AQINOW"){
+    console.log(detail.AQINOW)
+
+    notify.messages[0].text = "ขณะนี้ ค่าAQI ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQINOW+" ซึ่งมีค่าเกินมาตรฐาน"
+  }
+  else if(detail.AQINOW >=101 && detail.AQINOW <=200 && detail.type == "AQINOW"){
+
+    console.log(element.AQINOW)
+    notify.messages[0].text = "ขณะนี้ ค่าAQI ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQINOW+" ซึ่งมีเริ่มมีผลต่อสุขภาพ"
+  }
+  else if(detail.AQINOW >=201 && detail.type == "AQINOW"){
+    console.log(detail.AQINOW)
+
+    notify.messages[0].text = "ขณะนี้ ค่าAQI ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQINOW+" ซึ่งมีอันตรายต่อสุขภาพ"
+  }
+  if(detail.AQI1HR >=51 && detail.AQI1HR <=100 && detail.type == "AQI1HR"){
+
+    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQI1HR+" ซึ่งมีค่าเกินมาตรฐาน"
+  }
+  else if(detail.AQI1HR >=101 && detail.AQI1HR <=200 && detail.type == "AQI1HR"){
+
+    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQI1HR+" ซึ่งมีเริ่มมีผลต่อสุขภาพ"
+  }
+  else if(detail.AQI1HR >=201 && detail.type == "AQI1HR"){
+
+    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQI1HR+" ซึ่งมีอันตรายต่อสุขภาพ"
+  }
+  if(detail.AQI24HR >=51 && detail.AQI24HR <=100 && detail.type == "AQI24HR"){
+
+    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQI24HR+" ซึ่งมีค่าเกินมาตรฐาน"
+  }
+  else if(detail.AQI24HR >=101 && detail.AQI24HR <=200 && detail.type == "AQI24HR"){
+
+    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQI24HR+" ซึ่งมีเริ่มมีผลต่อสุขภาพ"
+  }
+  else if(detail.AQI24HR >=201 && detail.type == "AQI24HR"){
+
+    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQI24HR+" ซึ่งมีอันตรายต่อสุขภาพ"
+  }
   console.log(notify)
   return notify
 
@@ -215,8 +243,8 @@ async function getCardFromAllDevice() {
   console.log(device)
   device.forEach(element => {
     let card = {
-      thumbnailImageUrl: 'https://example.com/bot/images/item1.jpg',
-      imageBackgroundColor: '#FFFFFF',
+      // thumbnailImageUrl: 'https://example.com/bot/images/item1.jpg',
+      // imageBackgroundColor: '#FFFFFF',
       title: 'ลาดกระบัง',
       text: 'เลือกระดับการแจ้งเตือน',
       actions: [
@@ -280,8 +308,8 @@ async function getCardFromDeviceSub(UserID) {
     device.forEach(element => {
     // console.log(element)
       var card = {
-        thumbnailImageUrl: 'https://example.com/bot/images/item1.jpg',
-        imageBackgroundColor: '#FFFFFF',
+        // thumbnailImageUrl: 'https://example.com/bot/images/item1.jpg',
+        // imageBackgroundColor: '#FFFFFF',
         title: 'ลาดกระบัง',
         text: 'เลือกระดับการแจ้งเตือน',
         actions: [
