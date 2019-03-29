@@ -56,6 +56,7 @@ app.post('/webhook', (req, res) => {
           }
         )
       }
+      else if()
 
     }
   }
@@ -340,7 +341,88 @@ async function getCardFromDeviceSub(UserID) {
     return body
   }
 }
+function getCardCheckAQI(){
+  {
+    type: 'flex',
+    altText: 'Flex Message',
+    contents: {
+      type: 'carousel',
+      contents: [
+        {
+          type: 'bubble',
+          hero: {
+            type: 'image',
+            url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png',
+            size: 'full',
+            aspectRatio: '20:13',
+            aspectMode: 'cover'
+          },
+          body: {
+            type: 'box',
+            layout: 'vertical',
+            spacing: 'sm',
+            contents: [
+              {
+                type: 'text',
+                text: 'Arm Chair, White',
+                size: 'xl',
+                weight: 'bold',
+                wrap: true
+              },
+              {
+                type: 'box',
+                layout: 'baseline',
+                contents: [
+                  {
+                    type: 'text',
+                    text: '$49',
+                    flex: 0,
+                    size: 'xl',
+                    weight: 'bold',
+                    wrap: true
+                  },
+                  {
+                    type: 'text',
+                    text: '.99',
+                    flex: 0,
+                    size: 'sm',
+                    weight: 'bold',
+                    wrap: true
+                  }
+                ]
+              }
+            ]
+          },
+          footer: {
+            type: 'box',
+            layout: 'vertical',
+            spacing: 'sm',
+            contents: [
+              {
+                type: 'button',
+                action: {
+                  type: 'uri',
+                  label: 'Add to Cart',
+                  uri: 'https://linecorp.com'
+                },
+                style: 'primary'
+              },
+              {
+                type: 'button',
+                action: {
+                  type: 'uri',
+                  label: 'Add to whishlist',
+                  uri: 'https://linecorp.com'
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
 
+}
 
 function reply(reply_token, msg) {
   msg.replyToken = reply_token
