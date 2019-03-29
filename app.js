@@ -56,9 +56,6 @@ app.post('/webhook', (req, res) => {
           }
         )
       }
-      else if()
-
-    }
   }
   res.sendStatus(200)
 })
@@ -165,6 +162,12 @@ async function handleCmd(cmd, UserID) {
     // console.log(card)
     return card
   }
+  else if (cmd == "check AQI") {
+    let card = await getCardCheckAQI()
+    // console.log(card)
+    return card
+  }
+
 }
 
 async function userSubscribe(events) {
