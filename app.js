@@ -357,7 +357,7 @@ function getCardCheckAQI(){
             type: 'bubble',
             hero: {
               type: 'image',
-              url: 'https://drive.google.com/open?id=1OPA72ZACQMDvXQEyMGVdyCUccjbL-VmA',
+              url: 'https://www.dropbox.com/preview/checkAQI.jpg?role=personal',
               size: 'full',
               aspectRatio: '20:13',
               aspectMode: 'cover'
