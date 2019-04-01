@@ -357,7 +357,7 @@ function getCardCheckAQI(){
             type: 'bubble',
             hero: {
               type: 'image',
-              url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png',
+              url: 'https://drive.google.com/drive/u/1/folders/1bpC0P8IS9AcZJXh2a4mHsRcGuSHgBLQP/checkAQI.jpg',
               size: 'full',
               aspectRatio: '20:13',
               aspectMode: 'cover'
