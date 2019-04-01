@@ -83,10 +83,10 @@ async function mes_notify(detail){
     messages: [
       {
         type: 'text',
-        text: 'Hello'
+        text: ''
       }]
   }
-  //console.log(detail.AQINOW)
+  console.log(detail)
   detail.user.forEach(element =>{
     notify.to.push(element.UserID)
     
@@ -94,41 +94,41 @@ async function mes_notify(detail){
   if(detail.AQINOW >=51 && detail.AQINOW <=100 && detail.type == "AQINOW"){
     console.log(detail.AQINOW)
 
-    notify.messages[0].text = "ขณะนี้ ค่าAQI ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQINOW+" ซึ่งมีค่าเกินมาตรฐาน"
+    notify.messages[0].text = "ขณะนี้ ค่าAQI ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQINOW+" ซึ่งมีค่าเกินมาตรฐาน"
   }
-  else if(detail.AQINOW >=101 && detail.AQINOW <=200 && detail.type == "AQINOW"){
+  else if(detail.AQINOW >=101 && detail.AQINOW <=150 && detail.type == "AQINOW"){
 
     console.log(element.AQINOW)
-    notify.messages[0].text = "ขณะนี้ ค่าAQI ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQINOW+" ซึ่งมีเริ่มมีผลต่อสุขภาพ"
+    notify.messages[0].text = "ขณะนี้ ค่าAQI ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQINOW+" ซึ่งมีเริ่มมีผลต่อสุขภาพ"
   }
-  else if(detail.AQINOW >=201 && detail.type == "AQINOW"){
+  else if(detail.AQINOW >150 && detail.type == "AQINOW"){
     console.log(detail.AQINOW)
 
-    notify.messages[0].text = "ขณะนี้ ค่าAQI ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQINOW+" ซึ่งมีอันตรายต่อสุขภาพ"
+    notify.messages[0].text = "ขณะนี้ ค่าAQI ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQINOW+" ซึ่งมีอันตรายต่อสุขภาพ"
   }
   if(detail.AQI1HR >=51 && detail.AQI1HR <=100 && detail.type == "AQI1HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQI1HR+" ซึ่งมีค่าเกินมาตรฐาน"
+    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQI1HR+" ซึ่งมีค่าเกินมาตรฐาน"
   }
-  else if(detail.AQI1HR >=101 && detail.AQI1HR <=200 && detail.type == "AQI1HR"){
+  else if(detail.AQI1HR >=101 && detail.AQI1HR <=150 && detail.type == "AQI1HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQI1HR+" ซึ่งมีเริ่มมีผลต่อสุขภาพ"
+    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQI1HR+" ซึ่งมีเริ่มมีผลต่อสุขภาพ"
   }
-  else if(detail.AQI1HR >=201 && detail.type == "AQI1HR"){
+  else if(detail.AQI1HR >150 && detail.type == "AQI1HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQI1HR+" ซึ่งมีอันตรายต่อสุขภาพ"
+    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQI1HR+" ซึ่งมีอันตรายต่อสุขภาพ"
   }
   if(detail.AQI24HR >=51 && detail.AQI24HR <=100 && detail.type == "AQI24HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQI24HR+" ซึ่งมีค่าเกินมาตรฐาน"
+    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQI24HR+" ซึ่งมีค่าเกินมาตรฐาน"
   }
-  else if(detail.AQI24HR >=101 && detail.AQI24HR <=200 && detail.type == "AQI24HR"){
+  else if(detail.AQI24HR >=101 && detail.AQI24HR <=150 && detail.type == "AQI24HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQI24HR+" ซึ่งมีเริ่มมีผลต่อสุขภาพ"
+    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโม ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQI24HR+" ซึ่งมีเริ่มมีผลต่อสุขภาพ"
   }
-  else if(detail.AQI24HR >=201 && detail.type == "AQI24HR"){
+  else if(detail.AQI24HR >150 && detail.type == "AQI24HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location+"มีค่าเท่ากับ "+detail.AQI24HR+" ซึ่งมีอันตรายต่อสุขภาพ"
+    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQI24HR+" ซึ่งมีอันตรายต่อสุขภาพ"
   }
   console.log(notify)
   return notify
@@ -166,6 +166,10 @@ async function handleCmd(cmd, UserID) {
   else if (cmd == "check AQI") {
     let card = await getCardCheckAQI()
     // console.log(card)
+    return card
+  }
+  else if (cmd == "data now"){
+    let card = await getCardDataNOW()
     return card
   }
 
@@ -216,7 +220,7 @@ async function geteAllDevice() {
     console.log(err)
   }
   return response.data
-}
+}getCardCheckAQI()
 async function getDeviceSub(UserID) {
   let response
   try {
@@ -357,7 +361,7 @@ function getCardCheckAQI(){
             type: 'bubble',
             hero: {
               type: 'image',
-              url: 'https://www.dropbox.com/s/9wpe2niq73qf2e1/checknow.jpg',
+              url: 'https://www.img.in.th/images/91ffcb7f038ae5b95e0cb5033e713a69.jpg',
               size: 'full',
               aspectRatio: '20:13',
               aspectMode: 'cover'
@@ -393,7 +397,7 @@ function getCardCheckAQI(){
                   action: {
                     type: 'uri',
                     label: 'Go to site',
-                    uri: 'http://54.169.105.27:1880'
+                    uri: 'http://161.246.6.159:8880/#/data/AQI'
                   },
                   style: 'primary'
                 }
@@ -406,7 +410,67 @@ function getCardCheckAQI(){
   }
   return card
 }
-
+function getCardDataNOW(){
+  let card = {  
+      messages :[{
+      type: 'flex',
+      altText: 'Flex Message',
+      contents: {
+        type: 'carousel',
+        contents: [
+          {
+            type: 'bubble',
+            hero: {
+              type: 'image',
+              url: 'https://www.img.in.th/images/ccae57fd1998b57626725321449fd949.jpg',
+              size: 'full',
+              aspectRatio: '20:13',
+              aspectMode: 'cover'
+            },
+            body: {
+              type: 'box',
+              layout: 'vertical',
+              spacing: 'sm',
+              contents: [
+                {
+                  type: 'box',
+                  layout: 'baseline',
+                  contents: [
+                    {
+                      type: 'text',
+                      text: "CHECK DATA NOW",
+                      flex: 0,
+                      size: 'md',
+                      weight: 'bold',
+                      wrap: true
+                    },
+                  ]
+                }
+              ]
+            },
+            footer: {
+              type: 'box',
+              layout: 'vertical',
+              spacing: 'md',
+              contents: [
+                {
+                  type: 'button',
+                  action: {
+                    type: 'uri',
+                    label: 'Go to site',
+                    uri: 'http://161.246.6.159:8880/#/dashboard'
+                  },
+                  style: 'primary'
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }]
+  }
+  return card
+}
 
 function reply(reply_token, msg) {
   msg.replyToken = reply_token
