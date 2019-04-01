@@ -357,7 +357,7 @@ function getCardCheckAQI(){
             type: 'bubble',
             hero: {
               type: 'image',
-              url: 'https://www.dropbox.com/s/sdggwo7x3i2ff80/checkAQI.jpg?dl=0',
+              url: 'https://previews.dropbox.com/p/thumb/AAYw7ngXE-Fi8pSaEuZJMcLkwOd9D0eY-p-M3m31L0Ao6SjDHD2wp2VVNIZUP1OibwWOlZXf7v_Sw7seZQD1Pwxu-LpE6Ii_OHzINeHpdXXe2mhmyO9NM0YXgxAZW0Juk7e4qzkGs5jfiwAjFL_jUxeZmiUJk-GQlnWHQ6iCAclgsSd5741MtzUkARFbEahZ_-3BcKplf-vDoxogMIirFIugqOCD6ntI39ePptGXUb4OKxJJzoRwUrmMLTxK8RKz_v5v0GNsdZ3OQAd_SzbftxKqOC9kTBbY4ZW1mmuzofASHVFhqMxxxTVv3xLWraJR4zqKfEkXCWjDBJSABp_VbRA6/p.jpeg?size_mode=5',
               size: 'full',
               aspectRatio: '20:13',
               aspectMode: 'cover'
