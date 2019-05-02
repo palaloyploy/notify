@@ -112,23 +112,23 @@ async function mes_notify(detail){
   }
   else if(detail.AQI1HR == 4 && detail.type == "AQI1HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location +" ซึ่งมีเริ่มมีผลต่อสุขภาพ"
+    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location +" ซึ่งเริ่มมีผลต่อสุขภาพ"
   }
   else if(detail.AQI1HR == 5 && detail.type == "AQI1HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location + " ซึ่งมีอันตรายต่อสุขภาพ"
+    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location + " ซึ่งอันตรายต่อสุขภาพ"
   }
   if(detail.AQI24HR == 3 && detail.type == "AQI24HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQI24HR+" ซึ่งมีค่าเกินมาตรฐาน"
+    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location +" ซึ่งมีค่าเกินมาตรฐาน"
   }
   else if(detail.AQI24HR == 4 && detail.type == "AQI24HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโม ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQI24HR+" ซึ่งมีเริ่มมีผลต่อสุขภาพ"
+    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location +" ซึ่งเริ่มมีผลต่อสุขภาพ"
   }
   else if(detail.AQI24HR == 5 && detail.type == "AQI24HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQI24HR+" ซึ่งมีอันตรายต่อสุขภาพ"
+    notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location +" ซึ่งอันตรายต่อสุขภาพ"
   }
   console.log(notify)
   return notify
