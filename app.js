@@ -106,17 +106,17 @@ async function mes_notify(detail){
 
     notify.messages[0].text = "ขณะนี้ ค่าAQI ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQINOW+" ซึ่งมีอันตรายต่อสุขภาพ"
   }
-  if(detail.AQI1HR >=51 && detail.AQI1HR <=100 && detail.type == "AQI1HR"){
+  if(detail.AQI1HR == 5 && detail.type == "AQI1HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQI1HR+" ซึ่งมีค่าเกินมาตรฐาน"
+    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location +" ซึ่งมีค่าเกินมาตรฐาน"
   }
-  else if(detail.AQI1HR >=101 && detail.AQI1HR <=150 && detail.type == "AQI1HR"){
+  else if(detail.AQI1HR == 4 && detail.type == "AQI1HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQI1HR+" ซึ่งมีเริ่มมีผลต่อสุขภาพ"
+    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location +" ซึ่งมีเริ่มมีผลต่อสุขภาพ"
   }
-  else if(detail.AQI1HR >150 && detail.type == "AQI1HR"){
+  else if(detail.AQI1HR == 3 && detail.type == "AQI1HR"){
 
-    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location +"มีค่าเท่ากับ "+detail.AQI1HR+" ซึ่งมีอันตรายต่อสุขภาพ"
+    notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location + " ซึ่งมีอันตรายต่อสุขภาพ"
   }
   if(detail.AQI24HR >=51 && detail.AQI24HR <=100 && detail.type == "AQI24HR"){
 
