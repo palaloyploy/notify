@@ -91,7 +91,7 @@ async function mes_notify(detail){
     notify.to.push(element.UserID)
     
   })
-  if (detail.AQINOW == 1 || detail.AQINOW == 2  && detail.type == "AQINOW"){
+  if (detail.AQINOW == 1  && detail.type == "AQINOW"){
     notify.messages[0].text = "ขณะนี้ ค่าAQI ของพื้นที่ "+detail.location +" มีสภาพอากาศดีแล้วนะคะ"
   }
   else if(detail.AQINOW == 3 && detail.type == "AQINOW"){
@@ -106,7 +106,9 @@ async function mes_notify(detail){
  
     notify.messages[0].text = "ขณะนี้ ค่าAQI ของพื้นที่ "+detail.location +" ซึ่งอันตรายต่อสุขภาพ"
   }
-  if (detail.AQI1HR == 1 || detail.AQI1HR == 2  && detail.type == "AQI1HR"){
+
+
+  if (detail.AQI1HR == 1 && detail.type == "AQI1HR"){
     notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location +" มีสภาพอากาศดีแล้วนะคะ"
   }
   else if(detail.AQI1HR == 3 && detail.type == "AQI1HR"){
@@ -121,7 +123,9 @@ async function mes_notify(detail){
 
     notify.messages[0].text = "ค่าAQI ในอีก 1 ชั่วโมง ของพื้นที่ "+detail.location + " ซึ่งอันตรายต่อสุขภาพ"
   }
-  if (detail.AQI24HR == 1 || detail.AQI24HR == 2  && detail.type == "AQI24HR"){
+
+
+  if (detail.AQI24HR == 1  && detail.type == "AQI24HR"){
     notify.messages[0].text = "ค่าAQI ในอีก 24 ชั่วโมง ของพื้นที่ "+detail.location +" มีสภาพอากาศดีแล้วนะคะ"
   }
   else if(detail.AQI24HR == 3 && detail.type == "AQI24HR"){
